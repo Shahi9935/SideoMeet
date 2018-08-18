@@ -70,16 +70,16 @@
   <button class="btn" id="ra" onclick="resumeAudio()" disabled>Resume Audio</button>
 </div>
 </center>
-<p align="center"><input type="button" id="share_screen" value="Share screen"/></p>
-<p align="center"><video id="video" autoplay/></p>
+<!-- <p align="center"><input type="button" id="share_screen" value="Share screen"/></p> -->
+<!-- <p align="center"><video id="video" autoplay/></p>
 <script language="javascript">
-    navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mediaDevices.getUserMedia;
+    navigator.mediaDevices.getUserMedia =navigator.mediaDevices.getUserMedia;
     $('#share_screen').click(function() {
           navigator.mediaDevices.getUserMedia({
                   audio: false,
                   video: {
                       mandatory: {
-                          chromeMediaSource: 'screen',
+                          mediaSource: 'screen',
                           maxWidth: 1280,
                           maxHeight: 720
                       },
@@ -93,7 +93,7 @@
                 }
           )
     })
-</script>
+</script> -->
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- <script src="scripts/semantic-ui-css/semantic.min.js"></script> -->

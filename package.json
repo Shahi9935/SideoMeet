@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index"
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "handlebars": "^4.0.11",
     "jquery": "^3.3.1",
     "semantic-ui-css": "^2.3.3",
-    "simplewebrtc": "^3.0.2"
+    "simplewebrtc": "^3.0.2",
+    "websocket": "^1.0.26"
   }
 }

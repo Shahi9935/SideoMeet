@@ -86,3 +86,8 @@ document.getElementById('ra').disabled = true;
     return false;
   });
 
+  // $('#share_screen').on('click', (event) => {
+  // webrtc.getLocalScreen();
+  // });
+
+
