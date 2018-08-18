@@ -65,11 +65,12 @@ document.getElementById('rv').disabled = true;
   function pauseAudio(){
     webrtc.mute();
     document.getElementById('ra').disabled = false;
+    console.log("WHEN");
 document.getElementById('pa').disabled = true;
       }
   function resumeAudio(){
         webrtc.unmute();
-        document.getElementById('pa').disabled = false;
+document.getElementById('pa').disabled = false;
 document.getElementById('ra').disabled = true;
       }
 
