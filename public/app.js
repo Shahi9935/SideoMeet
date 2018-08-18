@@ -9,11 +9,12 @@ localVideoEl.hide();
 
   const webrtc = new SimpleWebRTC({
     localVideoEl: 'local-video',
-    remoteVideosEl: 'remote-videos',
+    remoteVideosEl: 'remote-videodiv',
     autoRequestMedia: true,
     debug: false,
     detectSpeakingEvents: true,
     autoAdjustMic: false,
+    autoRemoveVideos:true
   });
 
   webrtc.on('localStream', () => {
@@ -30,9 +31,6 @@ localVideoEl.hide();
         return;
     }
     $("#remote-videodiv").html(video);
-    document.getElementById("remote-videodiv").style.width="500px";
-    $("#remote-videodiv video").width("500px");
-    $("#placeholdre").html("");
     console.log(peer);
     // $("#remote-videodiv video").height("400px");
     // $(`#${id} video`).addClass('ui image medium');
@@ -49,16 +47,36 @@ localVideoEl.hide();
   };
 
   const joinRoom = (roomName,userName) => {
-    webrtc.joinRoom(roomName)
+    webrtc.joinRoom(roomName);
     console.log(`Joined ${roomName}`);
     // showChatRoom(roomName);
     // postMessage(`${username} joined chatroom`);
   };
+  function pauseVideo(){
+webrtc.pauseVideo();
+document.getElementById('rv').disabled = false;
+document.getElementById('pv').disabled = true;
+  }
+  function resumeVideo(){
+    webrtc.resumeVideo();
+    document.getElementById('pv').disabled = false;
+document.getElementById('rv').disabled = true;
+  }
+  function pauseAudio(){
+    webrtc.mute();
+    document.getElementById('ra').disabled = false;
+document.getElementById('pa').disabled = true;
+      }
+  function resumeAudio(){
+        webrtc.unmute();
+        document.getElementById('pa').disabled = false;
+document.getElementById('ra').disabled = true;
+      }
 
   $('.submit').on('click', (event) => {
     username = $('#username').val();
     const roomName = $('#roomName').val().toLowerCase();
-    $(".fields").html("");
+    $("#formEle").html(`Room - ${roomName}`);
     if (event.target.id === 'create-btn') {
       createRoom(roomName);
     } else {
